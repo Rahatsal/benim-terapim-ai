@@ -1,12 +1,12 @@
+# Gitpod'a, içinde Flutter ve Android SDK'nın hazır olduğu bir ortam kullanmasını söylüyoruz.
+image: ghcr.io/gitpod-io/gitpod-workspace-flutter:latest
+
+# Çalışma alanı başladığında otomatik olarak yapılacak görevler
 tasks:
-  - init: |
-      sudo apt-get update -y
-      sudo apt-get install -y openjdk-11-jdk
-      flutter doctor --android-licenses
-      flutter pub get
-    command: |
-      flutter doctor
-      
+  - init: flutter pub get  # Önce paketleri yükle
+    command: flutter doctor # Sonra durumu kontrol et
+
+# VS Code için önerilen eklentiler
 vscode:
   extensions:
     - Dart-Code.flutter
