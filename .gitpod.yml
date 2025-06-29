@@ -1,0 +1,12 @@
+tasks:
+  - init: |
+      sudo apt-get update -y
+      sudo apt-get install -y openjdk-11-jdk
+      flutter doctor --android-licenses
+      flutter pub get
+    command: |
+      flutter doctor
+      
+vscode:
+  extensions:
+    - Dart-Code.flutter
