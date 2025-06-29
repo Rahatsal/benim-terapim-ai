@@ -3,10 +3,15 @@ image: ghcr.io/gitpod-io/gitpod-workspace-flutter:latest
 
 # Çalışma alanı başladığında otomatik olarak yapılacak görevler
 tasks:
-  - init: flutter pub get  # Önce paketleri yükle
-    command: flutter doctor # Sonra durumu kontrol et
+  - name: "Initialize"
+    init: |
+      flutter config --android-sdk $ANDROID_HOME
+      yes | flutter doctor --android-licenses
+      flutter pub get
+    command: |
+      flutter doctor
 
-# VS Code için önerilen eklentiler
+# Gerekli VS Code eklentisi
 vscode:
   extensions:
     - Dart-Code.flutter
